@@ -1,13 +1,16 @@
 import Logo from "./logo";
 import Nav from "./nav";
 import styles from "../src/styles/header.module.css";
+import Container from "./container";
 export default function Header() {
   return (
     <header>
-      <div className={styles.flexContainer}>
-        <Logo boxOn />
-        <Nav />
-      </div>
+      <Container large>
+        <div className={styles.flexContainer}>
+          <Logo boxOn />
+          <Nav />
+        </div>
+      </Container>
     </header>
   );
 }
