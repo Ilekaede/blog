@@ -1,9 +1,11 @@
+import Head from "next/head";
 import Container from "components/container";
 import Hero from "components/hero";
 import PostBody from "components/post-body";
 import Contact from "components/contact";
 import Image from "next/image";
 import eyecatch from "../../images/about.jpg";
+import Meta from "components/meta";
 import {
   TwoColumn,
   TwoColumnMain,
@@ -13,6 +15,13 @@ import {
 export default function About() {
   return (
     <Container>
+      <Meta
+        pageTitle="アバウト"
+        pageDesc="About development activities"
+        pageImg={eyecatch.src}
+        pageImgW={eyecatch.width}
+        pageImgH={eyecatch.height}
+      />
       <Hero title={"About"} subtitle={"About development activities"} />
       <figure>
         <Image
