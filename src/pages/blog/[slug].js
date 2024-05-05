@@ -12,6 +12,8 @@ import {
   TwoColumnSidebar,
 } from "components/two-column";
 import { eyecatchLocal } from "lib/constants";
+import { prevNextPost } from "lib/prev-next-post";
+import Pagination from "components/pagination";
 
 export default function Post({
   title,
@@ -20,6 +22,8 @@ export default function Post({
   categories,
   eyecatch,
   description,
+  prevPost,
+  nextPost,
 }) {
   return (
     <Container>
@@ -48,6 +52,12 @@ export default function Post({
             <PostCategories categories={categories} />
           </TwoColumnSidebar>
         </TwoColumn>
+        <Pagination
+          prevText={prevPost.title}
+          prevUrl={`/blog/${prevPost.slug}`}
+          nextText={nextPost.title}
+          nextUrl={`/blog/${nextPost.slug}`}
+        />
       </article>
     </Container>
   );
@@ -68,6 +78,9 @@ export async function getStaticProps(context) {
   const description = extractText(post.content);
   const eyecatch = post.eyecatch ?? eyecatchLocal;
 
+  const allSlugs = await getAllSlugs();
+  const [prevPost, nextPost] = prevNextPost(allSlugs, slug);
+
   return {
     props: {
       title: post.title,
@@ -76,6 +89,8 @@ export async function getStaticProps(context) {
       eyecatch: eyecatch,
       categories: post.categories,
       description: description,
+      prevPost: prevPost,
+      nextPost: nextPost,
     },
   };
 }
