@@ -11,6 +11,7 @@ import {
   TwoColumnMain,
   TwoColumnSidebar,
 } from "components/two-column";
+import Accordion from "components/accordion";
 
 export default function About() {
   return (
@@ -52,6 +53,17 @@ export default function About() {
             <p>
               2つめは災害に関するものです．災害大国と呼ばれるほど，日本は毎年自然災害がその猛威を奮っています．そのような中で，災害現場の状況を安全に，広域に把握するための手段としてリモートセンシングが活用されています．小さいものではドローンに始まり，大きなものでは人工衛星まで，そのデータ取得方法は様々です．これらで撮影されたデータを解析し，災害領域の特定，流失家屋の検知等を目標として研究を行っています．
             </p>
+
+            <h2>FAQ</h2>
+            <Accordion heading="プログラミングのポイントについて">
+              <p>楽しむのが大事．</p>
+            </Accordion>
+            <Accordion heading="古代語の解読について">
+              <p>シャンポリオンは偉大な人であった.</p>
+            </Accordion>
+            <Accordion heading="公開リポジトリの活用について">
+              公開するとコメントがつくかもしれないぞ！
+            </Accordion>
           </PostBody>
         </TwoColumnMain>
         <TwoColumnSidebar>
