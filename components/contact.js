@@ -5,7 +5,7 @@ export default function Contact() {
     <div className={styles.stack}>
       <h3 className={styles.heading}>Contact</h3>
       <Social iconsize="30px" />
-      <address>saji-kenta@sajilove.com</address>
+      {/* <address>asakuramotiyo@gmail.com</address> */}
     </div>
   );
 }

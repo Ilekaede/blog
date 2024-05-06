@@ -8,8 +8,9 @@ export default function Footer() {
     <footer className={styles.wrapper}>
       <Container>
         <div className={styles.flexContainer}>
-          <Logo />
-          <Social />
+          (c)2024 Ilekaede all rights reserved.
+          {/* <Logo />
+          <Social /> */}
         </div>
       </Container>
     </footer>

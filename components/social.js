@@ -16,14 +16,14 @@ export default function Social({ iconSize = "initial" }) {
           <span className="sr-only">Twitter</span>
         </a>
       </li>
-      <li>
+      {/* <li>
         <a href="https://www.facebook.com/">
           <FontAwesomeIcon icon={faFacebookF} />
           <span className="sr-only">Facebook</span>
         </a>
-      </li>
+      </li> */}
       <li>
-        <a href="https://github.com/">
+        <a href="https://github.com/Ilekaede">
           <FontAwesomeIcon icon={faGithub} />
           <span className="sr-only">Github</span>
         </a>

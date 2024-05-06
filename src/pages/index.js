@@ -9,7 +9,11 @@ export default function Home({ posts }) {
   return (
     <Container>
       <Meta />
-      <Hero title={"SAJI"} subtitle={"アウトプットしていくサイト"} imageOn />
+      <Hero
+        title={"PortFolio"}
+        subtitle={"ブログ型アウトプットサイト"}
+        imageOn
+      />
       <Posts posts={posts} />
       <Pagination nextUrl="/blog" nextText="More Posts" />
     </Container>

@@ -1,4 +1,3 @@
-import Head from "next/head";
 import Container from "components/container";
 import Hero from "components/hero";
 import PostBody from "components/post-body";
@@ -23,7 +22,7 @@ export default function About() {
         pageImgW={eyecatch.width}
         pageImgH={eyecatch.height}
       />
-      <Hero title={"About"} subtitle={"About development activities"} />
+      <Hero title={"About"} subtitle={"自分について"} />
       <figure>
         <Image
           src={eyecatch}
@@ -37,32 +36,63 @@ export default function About() {
       <TwoColumn>
         <TwoColumnMain>
           <PostBody>
-            <p>
-              佐治研究室が得意としているのは画像処理です．取得されたデータから色情報，地形情報，更には赤外線までも扱い，諸問題の解決を目指します．
-            </p>
-            <h2>いまやっていること</h2>
-            <p>
-              佐治研究室で現在解決を目指している研究課題は大きく分けて2つです．
-            </p>
-            <h3>交通問題への取り組み</h3>
-            <p>
-              自動車が広く普及した現代では，交通事故，あおり運転，スピード違反等の問題が後を絶たない状況です．
-              そのため，自動車の速度計測，あおり運転検知，事故発生時の現場検証を中心に，それらの自動化を目指して研究に取り組んでいます．
-            </p>
-            <h3>災害発生時の対応</h3>
-            <p>
-              2つめは災害に関するものです．災害大国と呼ばれるほど，日本は毎年自然災害がその猛威を奮っています．そのような中で，災害現場の状況を安全に，広域に把握するための手段としてリモートセンシングが活用されています．小さいものではドローンに始まり，大きなものでは人工衛星まで，そのデータ取得方法は様々です．これらで撮影されたデータを解析し，災害領域の特定，流失家屋の検知等を目標として研究を行っています．
-            </p>
+            <h2>自己紹介</h2>
+            <li>
+              <p>
+                <strong>所属：</strong>静岡大学　修士１年
+              </p>
+              <p>
+                <strong>専攻：</strong>情報学
+              </p>
+              <p>
+                <strong>専門分野：</strong>画像処理
+              </p>
+              <p>
+                <strong>研究テーマ：</strong>
+                <ul>
+                  <li>災害地域上空画像を利用した斜面崩壊領域検出</li>
+                  <li>ドローン撮影画像を利用した河川検出およびその活用</li>
+                </ul>
+              </p>
+            </li>
+            <h3>プログラミング経験・制作物</h3>
+            <ul>
+              <strong>個人制作</strong>
+              <li>
+                画像処理アルゴリズム学習プログラミングツール「SajiLab-B3-Programming-Kit」
+              </li>
+              <li>ポートフォリオサイト</li>
+              <br />
+              <strong>チーム開発</strong>
+              <li>散歩＆アイテムゲットアプリ「PickNic」</li>
+            </ul>
 
+            <p></p>
             <h2>FAQ</h2>
-            <Accordion heading="プログラミングのポイントについて">
-              <p>楽しむのが大事．</p>
+            <Accordion heading="趣味はなんですか？">
+              <p>動物が好きなので，動物園とか水族館に行くのが好きです！</p>
             </Accordion>
-            <Accordion heading="古代語の解読について">
-              <p>シャンポリオンは偉大な人であった.</p>
+            <Accordion heading="将来の夢はなんですか？">
+              <p>
+                <ul>
+                  <li>
+                    湘南の海沿いの家に住んで，でかい犬とランニングをすること🐶
+                  </li>
+                  <li>自分の名前を日本史の教科書に載せたい！</li>
+                  <li>目を瞑って振り返った時に後悔がない人生🏃‍♀️</li>
+                </ul>
+              </p>
             </Accordion>
-            <Accordion heading="公開リポジトリの活用について">
-              公開するとコメントがつくかもしれないぞ！
+            <Accordion heading="ポートフォリオ作成の目的は？">
+              <ul>
+                <li>
+                  Next.jsを使ってみたかったので，参考書を見ながら勉強目的で作成．
+                </li>
+                <li>
+                  Webページを公開して気付いたことを書き込む環境を作りたかった．
+                </li>
+                <li>GWに予定がなかったのでその活用🌞</li>
+              </ul>
             </Accordion>
           </PostBody>
         </TwoColumnMain>
