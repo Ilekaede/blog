@@ -3,6 +3,7 @@ import Hero from "components/hero";
 import Meta from "components/meta";
 import { getAllPosts } from "lib/api";
 import Posts from "components/posts";
+import { eyecatchLocal } from "lib/constants";
 
 export default function Blog({ posts }) {
   return (
@@ -16,6 +17,14 @@ export default function Blog({ posts }) {
 
 export async function getStaticProps() {
   const posts = await getAllPosts();
+  console.log(posts);
+
+  for (const post of posts) {
+    if (!post.hasOwnProperty("eyecatch")) {
+      post.eyecatch = eyecatchLocal;
+    }
+  }
+  // console.log(posts);
 
   return {
     props: {

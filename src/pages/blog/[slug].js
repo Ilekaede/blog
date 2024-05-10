@@ -14,33 +14,36 @@ import {
 import { eyecatchLocal } from "lib/constants";
 import { prevNextPost } from "lib/prev-next-post";
 import Pagination from "components/pagination";
+import Image from "next/image";
 
 export default function Post({
   title,
   publish,
   content,
-  categories,
   eyecatch,
+  categories,
   description,
   prevPost,
   nextPost,
 }) {
+  // console.log(eyecatch);
   return (
     <Container>
       <Meta pageTitle={title} pageDesc={description} />
       <article>
         <PostHeader title={title} subtitle="Blog Article" publish={publish} />
         <figure>
-          [アイキャッチ画像]
-          {/* <Image
-            src={"https://cdn2.thecatapi.com / images / be7.jpg"}
+          <Image
+            src={eyecatch.url}
             alt=""
             layout="responsive"
-            width={1920}
-            height={1280}
+            width={eyecatch.width}
+            height={eyecatch.height}
             sizes="(min-width: 1152px) 1152px, 100vw"
             priority
-          /> */}
+            // placeholder="blur"
+            // blurDataURL="eyecatch.blurDataURL"
+          />
         </figure>
         <TwoColumn>
           <TwoColumnMain>
@@ -49,7 +52,7 @@ export default function Post({
             </PostBody>
           </TwoColumnMain>
           <TwoColumnSidebar>
-            <PostCategories categories={categories} />
+            {/* <PostCategories categories={categories} /> */}
           </TwoColumnSidebar>
         </TwoColumn>
         <Pagination
@@ -65,6 +68,7 @@ export default function Post({
 
 export async function getStaticPaths() {
   const allSlugs = await getAllSlugs();
+  // console.log(allSlugs);
   return {
     paths: allSlugs.map(({ slug }) => `/blog/${slug}`),
     fallback: false,
@@ -72,15 +76,20 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const slug = context.params.slug;
-  const post = await getPostBySlug(slug);
+  const slug = context.params.slug; // urlの一番後ろを取得
+  // console.log(slug);
+  const post = await getPostBySlug(slug); //slugでapi叩いてデータを取得
+  // console.log(post);
 
   const description = extractText(post.content);
   const eyecatch = post.eyecatch ?? eyecatchLocal;
+  console.log(eyecatch);
+
+  // const { base64 } = await getPlaiceholder(eyecatch.url);
+  // eyecatch.blurDataURL = base64;
 
   const allSlugs = await getAllSlugs();
   const [prevPost, nextPost] = prevNextPost(allSlugs, slug);
-
   return {
     props: {
       title: post.title,

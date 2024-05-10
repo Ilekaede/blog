@@ -4,6 +4,7 @@ import Meta from "components/meta";
 import { getAllPosts } from "lib/api";
 import Posts from "components/posts";
 import Pagination from "components/pagination";
+import { eyecatchLocal } from "lib/constants";
 
 export default function Home({ posts }) {
   return (
@@ -22,6 +23,12 @@ export default function Home({ posts }) {
 
 export async function getStaticProps() {
   const posts = await getAllPosts(4);
+
+  for (const post of posts) {
+    if (!post.hasOwnProperty("eyecatch")) {
+      post.eyecatch = eyecatchLocal;
+    }
+  }
 
   return {
     props: {
