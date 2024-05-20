@@ -52,7 +52,7 @@ export default function Post({
             </PostBody>
           </TwoColumnMain>
           <TwoColumnSidebar>
-            {/* <PostCategories categories={categories} /> */}
+            <PostCategories categories={categories} />
           </TwoColumnSidebar>
         </TwoColumn>
         <Pagination
@@ -83,7 +83,9 @@ export async function getStaticProps(context) {
 
   const description = extractText(post.content);
   const eyecatch = post.eyecatch ?? eyecatchLocal;
-  console.log(eyecatch);
+  // console.log(eyecatch);
+
+  // const categories =
 
   // const { base64 } = await getPlaiceholder(eyecatch.url);
   // eyecatch.blurDataURL = base64;
