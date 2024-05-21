@@ -26,7 +26,6 @@ export default function Post({
   prevPost,
   nextPost,
 }) {
-  // console.log(eyecatch);
   return (
     <Container>
       <Meta pageTitle={title} pageDesc={description} />
@@ -41,8 +40,6 @@ export default function Post({
             height={eyecatch.height}
             sizes="(min-width: 1152px) 1152px, 100vw"
             priority
-            // placeholder="blur"
-            // blurDataURL="eyecatch.blurDataURL"
           />
         </figure>
         <TwoColumn>
@@ -68,7 +65,6 @@ export default function Post({
 
 export async function getStaticPaths() {
   const allSlugs = await getAllSlugs();
-  // console.log(allSlugs);
   return {
     paths: allSlugs.map(({ slug }) => `/blog/${slug}`),
     fallback: false,
@@ -83,12 +79,6 @@ export async function getStaticProps(context) {
 
   const description = extractText(post.content);
   const eyecatch = post.eyecatch ?? eyecatchLocal;
-  // console.log(eyecatch);
-
-  // const categories =
-
-  // const { base64 } = await getPlaiceholder(eyecatch.url);
-  // eyecatch.blurDataURL = base64;
 
   const allSlugs = await getAllSlugs();
   const [prevPost, nextPost] = prevNextPost(allSlugs, slug);

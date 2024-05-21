@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFolderOpen } from "@fortawesome/free-regular-svg-icons";
 
 export default function PostCategories({ categories }) {
-  // console.log("カテゴリー：" + categories);
   return (
     <div className={styles.flexContainer}>
       <h3 className={styles.heading}>
